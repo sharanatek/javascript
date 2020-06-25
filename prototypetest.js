@@ -42,3 +42,29 @@ engineerPrototype.type = "Awesome Engineer";
 // Call a method on our object (that uses the prototype):
 console.log(pandaTheEngineer.sayHello()); // => "Hello, I'm Panda and I'm an Awesome Engineer"
 
+class Engineer {
+    type = 'Engineer'
+    constructor(name) {
+    this.name = name;
+    }
+    sayHello() {
+    return `Hello, I'm ${this.name} and I'm an ${this.type}`;
+    }
+    }
+    
+    const pandaTheEngineer1 = new Engineer();
+    
+    Object.getOwnPropertyNames(pandaTheEngineer1); // => ["type", "name"]
+    
+    console.log(    Object.getOwnPropertyNames(
+    Object.getPrototypeOf(pandaTheEngineer1)
+    )); // => ["constructor", "sayHello"]
+
+
+const pandaTheEngineer2 = new Engineer();
+console.log(Object.getOwnPropertyNames(pandaTheEngineer2)); // => ["name"]
+
+console.log(
+Object.getOwnPropertyNames(
+  Object.getPrototypeOf(pandaTheEngineer2)
+)); // => ["type", "sayHello"]
